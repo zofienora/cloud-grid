@@ -1,0 +1,8 @@
+html, body, #root { height: 100%; } 
+
+body {
+  background-image: url('./assets/sky.jpg');
+  background-size: cover;       /* make it fill the screen */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat; /* don't tile it */
+}
