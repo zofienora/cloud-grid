@@ -1,8 +1,19 @@
+/* grid fills the viewport and never overflows */
 .clouds-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  min-height: 100vh;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+  height: 100svh;          /* use 100vh if you prefer */
+  width: 100vw;
+  gap: 12px;
+  padding: 12px;
   box-sizing: border-box;
-  padding: 1rem;
+}
+
+/* make each cloud scale to its cell */
+.cloud {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* keep image proportions */
+  display: block;
 }
