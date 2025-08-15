@@ -13,11 +13,11 @@ function getCols() {
 
 export default function Clouds() {
   const images = [
+    CloudOne, CloudTwo, CloudOne,
+    CloudTwo, CloudThree, CloudTwo,
+    CloudThree, CloudOne, CloudThree,
     CloudOne, CloudTwo, CloudThree,
-    CloudOne, CloudTwo, CloudThree,
-    CloudOne, CloudTwo, CloudThree,
-    CloudOne, CloudTwo, CloudThree,
-    CloudOne, CloudTwo, CloudThree
+    CloudTwo, CloudThree, CloudOne
   ];
 
   const [cols, setCols] = useState(getCols());
