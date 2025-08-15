@@ -25,7 +25,17 @@ export default function Clouds() {
 
   const handleHover = (index) => {
     setRotations((prev) =>
-      prev.map((r, i) => (i === index ? r + 15 : r)) // add 5deg each time
+      prev.map((r, i) => {
+        if (i !== index) return r;
+
+        // If this is a CloudThree, rotate opposite direction
+        if (images[i] === CloudThree) {
+          return r - 115; // counter-clockwise
+        }
+
+        // All others rotate clockwise
+        return r + 115;
+      })
     );
   };
 
