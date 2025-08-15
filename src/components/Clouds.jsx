@@ -20,6 +20,17 @@ export default function Clouds() {
     CloudTwo, CloudThree, CloudOne
   ];
 
+  // track rotation per cloud
+  const [rotations, setRotations] = useState(Array(images.length).fill(0));
+
+  const handleHover = (index) => {
+    setRotations((prev) =>
+      prev.map((r, i) => (i === index ? r + 15 : r)) // add 5deg each time
+    );
+  };
+
+  // set up columns based on window width
+
   const [cols, setCols] = useState(getCols());
   useEffect(() => {
     const onResize = () => setCols(getCols());
@@ -35,7 +46,14 @@ export default function Clouds() {
       style={{ "--cols": cols, "--rows": rows }}
     >
       {images.map((src, i) => (
-        <img key={i} src={src} alt={`Cloud ${i + 1}`} className="cloud" />
+        <img 
+            key={i} 
+            src={src} 
+            alt={`Cloud ${i + 1}`} 
+            className="cloud" 
+            style={{ transform: `rotate(${rotations[i]}deg)` }}
+            onMouseEnter={() => handleHover(i)}
+        />
       ))}
     </div>
   );
